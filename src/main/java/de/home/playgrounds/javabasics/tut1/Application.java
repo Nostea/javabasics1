@@ -1,4 +1,4 @@
-package de.home.playgrounds.javabasics.tutorial1;
+package de.home.playgrounds.javabasics.tut1;
 
 public class Application {
     public static void main(String[] args) {

@@ -19,7 +19,8 @@ public class PersonExercise {
 
         System.out.println(peter.firstName + " is currently " + peter.age + " years old");
         System.out.println(peter.firstName + " celebrates his birthday");
-        System.out.println(peter.celebrateBirthday());
+        peter.celebrateBirthday();
         System.out.println("He is " + peter.age + " years old now. Congrats!");
+
     }
 }

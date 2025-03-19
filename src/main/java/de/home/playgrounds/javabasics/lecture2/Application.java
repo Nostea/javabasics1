@@ -39,5 +39,7 @@ public class Application {
         double piFromMath = Math.PI;
 
         MySystemOutPrintln.println(MySystemOutPrintln.getPrintlnCounter());
+
+
     }
 }

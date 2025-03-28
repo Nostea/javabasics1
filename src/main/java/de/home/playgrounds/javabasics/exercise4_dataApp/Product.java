@@ -10,7 +10,7 @@ public class Product {
     private boolean isInStock = true;
     private int amountInStock = 2;
 
-    public Product (String productName, double price) {
+    public Product(String productName, double price) {
         this.id = UUID.randomUUID().toString();
         this.productName = productName;
         this.price = price;

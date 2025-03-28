@@ -27,7 +27,9 @@ public class ProductDataBase {
     }
 
     //ist nur ein getter um es nach außen sichtbar zu machen
-    public ArrayList<Product> getProductsDataBase() {return productsDataBase;}
+    public ArrayList<Product> getProductsDataBase() {
+        return productsDataBase;
+    }
 
     public void addProductToDB(Product newProduct) {
         productsDataBase.add(newProduct);
@@ -36,7 +38,6 @@ public class ProductDataBase {
     public void deleteProductFromDB(Product product) {
         productsDataBase.remove(product);
     }
-
 
 
 }

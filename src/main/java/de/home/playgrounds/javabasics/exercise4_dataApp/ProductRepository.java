@@ -35,7 +35,7 @@ public class ProductRepository {
     public ArrayList<Product> getAllProducts() {
         //this(Diese Database) dataBase(verbundeneDatabase)
         //getProductsDataBase(Speichervermerk auf die Products ArrayList)
-         return this.dataBase.getProductsDataBase();
+        return this.dataBase.getProductsDataBase();
     }
 
     public Product getProductById(String id) {
@@ -45,7 +45,7 @@ public class ProductRepository {
         //erstelle eine container Arraylist nur für diese methode
         ArrayList<Product> products = getAllProducts();
         for (Product element : products) {
-            if(element.getId().equals(id)) {
+            if (element.getId().equals(id)) {
                 return element;
             }
         }
@@ -60,7 +60,7 @@ public class ProductRepository {
 
     public boolean productExists(String id) {
         Product existingProduct = getProductById(id);
-        if(existingProduct != null) {
+        if (existingProduct != null) {
             System.out.println(existingProduct.getProductName() + " ID: " + existingProduct.getId() + " exists");
             return true;
         } else {
@@ -69,11 +69,10 @@ public class ProductRepository {
     }
 
     public void deleteExistingProduct(Product product) {
-        System.out.println("Deleting product " + product.getProductName()+ " ID: " + product.getId());
+        System.out.println("Deleting product " + product.getProductName() + " ID: " + product.getId());
         dataBase.deleteProductFromDB(product);
         System.out.println("Deletion Successful");
     }
-
 
 
 }

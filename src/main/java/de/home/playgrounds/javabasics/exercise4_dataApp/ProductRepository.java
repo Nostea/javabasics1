@@ -19,6 +19,20 @@ public class ProductRepository {
         return this.dataBase != null;
     }
 
+    public void purchaseProductById(String id) {
+        ArrayList<Product> products = getAllProducts();
+        for (Product element : products) {
+            if (element.getId().equals(id) || element.getAmountInStock() > 0) {
+                element.setAmountInStock(element.getAmountInStock() - 1);
+                System.out.println("Purchase Successful. New amount in Stock: " + element.getAmountInStock());
+
+            } else {
+                System.out.println("purchasing failed");
+            }
+
+        }
+    }
+
     public String getDataBaseName() {
         return this.dataBaseName;
     }
@@ -73,6 +87,7 @@ public class ProductRepository {
         dataBase.deleteProductFromDB(product);
         System.out.println("Deletion Successful");
     }
+
 
 
 }

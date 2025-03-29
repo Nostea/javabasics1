@@ -1,5 +1,6 @@
 package de.home.playgrounds.javabasics.exercise4_dataApp;
 
+import java.util.Scanner;
 import java.util.UUID;
 
 public class Product {
@@ -16,7 +17,6 @@ public class Product {
         this.price = price;
 
     }
-
 
     public void restockProduct(Product productName, int amountInStock) {
         amountInStock += 5;

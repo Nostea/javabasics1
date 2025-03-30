@@ -21,17 +21,25 @@ public class ProductRepository {
 
     public void purchaseProductById(String id) {
         ArrayList<Product> products = getAllProducts();
+
         for (Product element : products) {
-            if (element.getId().equals(id) || element.getAmountInStock() > 0) {
-                element.setAmountInStock(element.getAmountInStock() - 1);
-                System.out.println("Purchase Successful. New amount in Stock: " + element.getAmountInStock());
-
-            } else {
-                System.out.println("purchasing failed");
+            if (element.getId().equals(id)) {  // nur auf passendes product beziehen
+                if (element.getAmountInStock() > 0) { // Produkte sind inStock
+                    element.setAmountInStock(element.getAmountInStock() - 1);
+                    System.out.println(element.getProductName() + " - purchase Successful. New amount in stock: " + element.getAmountInStock());
+                } else {
+                    System.out.println("Purchasing failed. 0 items in stock.");
+                }
+                return; // Stoppe Programm, nachdem Produkt gefunden wurde
             }
-
         }
+
+        // An dieser Stelle kommt man an, wenn kein passendes produkt gefunden wurde
+        System.out.println("Purchasing failed. Product ID not found.");
     }
+
+
+
 
     public String getDataBaseName() {
         return this.dataBaseName;

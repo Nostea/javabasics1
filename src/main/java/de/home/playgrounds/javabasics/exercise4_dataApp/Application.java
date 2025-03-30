@@ -24,6 +24,7 @@ public class Application {
             System.out.println("3: Produkte hinzufügen");
             System.out.println("4: Prüfen, ob Produkt-Id existiert");
             System.out.println("5: Produkt anhand Id löschen");
+            System.out.println("6: Produkt kaufen");
 
             String userChoice = scanner.nextLine();
 
@@ -75,6 +76,19 @@ public class Application {
                         System.exit(1);
                     }
                 }
+
+                case "6" -> {
+                    System.out.println("Kaufen von Produkt anhand der ID: ");
+                    String productIdInput = scanner.nextLine();
+                    if (productIdInput != null) {
+                        productRepository.purchaseProductById(productIdInput);
+                        System.out.println();
+                    } else {
+                        System.out.println("Fehler");
+                    }
+
+                }
+
             }
 
             System.out.println("Möchtest du eine weitere Aktion ausführen? (y/n)");

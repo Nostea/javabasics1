@@ -5,6 +5,11 @@ public class Znake {
 
 
     public static void main( String[] args ) {
+
+        // TODO : Spieler, Schlange und Gold sollen jede Runde eine neue Koordinate erhalten
+        // TODO : 2 Schlangen
+        // TODO : Das Programm soll in mehrere Methoden aufgespaltet werden
+
         int playerMoveCounter = 0;
         java.awt.Point playerPosition = new java.awt.Point( 10, 9 );
         java.awt.Point snakePosition  = new java.awt.Point( 30, 2 );

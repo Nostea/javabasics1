@@ -31,7 +31,7 @@ public class Application {
         String fileContent = Files.readString(path1);
         //System.out.println(fileContent);  //output: Alles, was in der txt datei steht, wird im terminal angezeigt
         List<String> fileContentAsList = Files.readAllLines(path1);
-        System.out.println(fileContentAsList.size()); //output: 8 (die menge an aktuell geschriebenen Strings)
+        System.out.println(fileContentAsList.size()); //output: 8 (, bzw die menge an aktuell geschriebenen Strings)
         for (String lineItem : fileContentAsList) {
             System.out.println(lineItem);
         }
@@ -52,12 +52,23 @@ public class Application {
         }
 
         System.out.println("--writeCSV--");
-
-        // die Konstante macht jetzt da ich einen writer habe im reader keinen sinn
+        // die Konstante macht jetzt da ich einen writer habe im CsvReader keinen sinn
         PersonsCsvWriter.writeNewPersonInCsv(PersonsCsvReader.FILE_PATH, csvName1);
 
 
+        System.out.println("---sort---");
 
+        SortPersons.sortByFirstName(generatedListOfPersonsFromCsv);
+        for (Person sortedPerson : generatedListOfPersonsFromCsv) {
+            System.out.println(sortedPerson.getFirstName() + " age: " + sortedPerson.getAge());
+        }
+
+        System.out.println();
+
+        SortPersons.sortByAge(generatedListOfPersonsFromCsv);
+        for (Person sortedPerson : generatedListOfPersonsFromCsv) {
+            System.out.println(sortedPerson.getFirstName() + " age: " + sortedPerson.getAge());
+        }
 
     }
 }

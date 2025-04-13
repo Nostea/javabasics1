@@ -1,0 +1,5 @@
+id;firstName;lastName;age;city;isAtParty
+0001;Nina;Katiri;28;Montreal;true
+0002;Simon;Meier;34;Washington;true
+0003;Lia;Nguyen;25;Hanoi;false
+0004;Andrej;Alexandrov;27;Moskau;true

@@ -19,7 +19,6 @@ public class Person {
         this.isAtParty = isAtParty;
     }
 
-
     public String getId() {
         return id;
     }

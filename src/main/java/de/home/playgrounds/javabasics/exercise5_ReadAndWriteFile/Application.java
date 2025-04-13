@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -13,10 +14,9 @@ public class Application {
 
         String filename1 = "first_file.txt";
         String csvName1 = "persons.csv";
-        String fileDirectory = "src/main/java/de/home/playgrounds/javabasics/exercise5_ReadAndWriteFile/";
 
         //Path path1 = Paths.get("src","main","java","de","home", "playgrounds", "javabasics","exercise5_ReadAndWriteFile", filename1);
-        Path path1 = Paths.get(fileDirectory + filename1);
+        Path path1 = Paths.get(PersonsCsvReader.FILE_PATH + filename1);
 
         if(!Files.exists(path1)) {
             Files.createFile(path1);
@@ -35,5 +35,29 @@ public class Application {
         for (String lineItem : fileContentAsList) {
             System.out.println(lineItem);
         }
+
+        System.out.println("--------");
+
+        ArrayList<Person> generatedListOfPersonsFromCsv = PersonsCsvReader.readCsvFileIntoPersonList(PersonsCsvReader.FILE_PATH + csvName1);
+
+        System.out.println(generatedListOfPersonsFromCsv.get(1).getFirstName());
+
+        System.out.println("Willkommen zu meiner Partyliste. \nWer ist anwesend?");
+        for (Person person : generatedListOfPersonsFromCsv) {
+            if(person.isAtParty() == true) {
+                System.out.println(person.getFirstName() + " ist da ");
+            } else{
+                System.out.println(person.getFirstName() + " ist nicht da ");
+            }
+        }
+
+        System.out.println("--writeCSV--");
+
+        // die Konstante macht jetzt da ich einen writer habe im reader keinen sinn
+        PersonsCsvWriter.writeNewPersonInCsv(PersonsCsvReader.FILE_PATH, csvName1);
+
+
+
+
     }
 }

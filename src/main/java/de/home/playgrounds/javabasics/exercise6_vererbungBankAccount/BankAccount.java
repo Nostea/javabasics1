@@ -1,15 +1,13 @@
 package de.home.playgrounds.javabasics.exercise6_vererbungBankAccount;
 
-import java.util.Scanner;
-
-public class BankAccount {
+public abstract class BankAccount {
 
     protected int accountId;
     protected double balance;
     protected AccountStatus accountStatus;
 
-    public BankAccount(int accountId, double balance, AccountStatus accountStatus) {
-        this.accountId = accountId;
+    public BankAccount(double balance, AccountStatus accountStatus) {
+        this.accountId = Customer.MIN + (int)(Math.random() * ((Customer.MAX - Customer.MIN) + 1)); // generated numbers are within 111111 - 999999 range
         this.balance = balance;
         this.accountStatus = accountStatus;
     }

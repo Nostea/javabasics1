@@ -1,0 +1,69 @@
+@startuml QuestTrackerApp
+!theme toy
+hide empty members
+skinparam shadowing false
+
+title Quest Tracker App - Klassendiagramm
+
+package questtracker {
+
+  class QuestTrackerApp {
+    + {static} main(String[] args): void
+  }
+
+  class QuestUI extends JFrame {
+    - questManager: QuestManager
+    - dailyQuestsPanel: JPanel
+    - weeklyQuestsPanel: JPanel
+    - resetButton: JButton
+    + QuestUI(title: String, questManager: QuestManager)
+    + initUI(): void
+    + updateQuestDisplay(): void
+    - createQuestPanel(quest: Quest): JPanel
+    - applyTheme(): void
+    - addQuestToPanel(quest: Quest, panel: JPanel): void
+    - refreshQuestPanels(): void
+  }
+
+  class Quest {
+    - description: String
+    - targetValue: int
+    - currentValue: int
+    - completed: boolean
+    - questType : QuestType
+    + Quest(description: String, targetValue: int)
+    + getProgressPercentage(): double
+    + isCompleted(): boolean
+    + updateProgress(amount: int): void
+    + getDescription(): String
+    + getCurrentValue(): int
+    + getTargetValue(): int
+    + getQuestType(): QuestType
+  }
+
+ enum QuestType {
+    DAILY,
+    WEEKLY,
+    EVENT
+ }
+
+  class QuestManager {
+    - quests: List<Quest>
+    + QuestManager()
+    + addQuest(quest: Quest): void
+    + getAllQuests(): List<Quest>
+    + getDailyQuests(): List<Quest>
+    + getWeeklyQuests(): List<Quest>
+  }
+
+  ' Beziehungen
+  QuestTrackerApp ..> QuestUI : erstellt und zeigt
+  QuestUI o-- QuestManager : verwendet (Aggregation)
+
+  Quest ..> QuestType : _hat einen
+  QuestManager o-- "*" Quest : verwaltet (Aggregation)
+
+
+}
+
+@enduml

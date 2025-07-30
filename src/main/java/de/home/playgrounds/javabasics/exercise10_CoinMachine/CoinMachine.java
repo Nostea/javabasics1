@@ -1,4 +1,4 @@
-package de.home.playgrounds.javabasics.exercise10;
+package de.home.playgrounds.javabasics.exercise10_CoinMachine;
 
 import java.util.Scanner;
 

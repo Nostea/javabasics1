@@ -1,9 +1,6 @@
 package de.home.playgrounds.javabasics.exercise15_ArrayRefresher;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ArrayRefresher {
@@ -124,6 +121,10 @@ public class ArrayRefresher {
 
 
         System.out.println("--------");
+
+        List<Integer> list1 = new ArrayList<>(List.of(1,2,3,4,5,5,6,2));
+        //Set<Integer> set1 = new HashSet<>(Set.of(1,2,3,4,5,5,6,2)); // funktioniert nicht wegen duplikate. Set ist eine Collection aus unique items.
+        System.out.println(list1);
 
     }
 

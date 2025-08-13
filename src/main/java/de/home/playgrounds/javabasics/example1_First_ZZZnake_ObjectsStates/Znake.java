@@ -1,4 +1,4 @@
-package de.home.playgrounds.javabasics.example1_ObjectsStates;
+package de.home.playgrounds.javabasics.example1_First_ZZZnake_ObjectsStates;
 
 public class Znake {
 

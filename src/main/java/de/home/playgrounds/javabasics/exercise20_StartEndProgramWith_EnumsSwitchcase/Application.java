@@ -1,11 +1,16 @@
 package de.home.playgrounds.javabasics.exercise20_StartEndProgramWith_EnumsSwitchcase;
 
+import de.home.playgrounds.javabasics.exercise21_smallApp_Jpane_enums.DBConnectorSingleton;
+
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean continueProgram = true;
+
+        // db wird verbunden
+        DBConnectorSingleton dbConnection1 = DBConnectorSingleton.getInstance();
 
         while(continueProgram) {
 

@@ -1,5 +1,7 @@
 package de.home.playgrounds.javabasics.exercise22_ArrayMethodsLoopsRevision;
 
+import java.util.Arrays;
+
 public class ArraysRevision {
 
     public static void findMaxVal (int[] array) {
@@ -39,6 +41,27 @@ public class ArraysRevision {
         System.out.println(average);
     }
 
+    public static void reverseArray (int[] array) {
+        int[] reversedArray = new int[array.length];
+
+        int j = 0;
+        for (int i = array.length - 1; i >= 0; i-- ) {
+            reversedArray[j] = array[i];
+            j++;
+        }
+        System.out.println(Arrays.toString(reversedArray));
+    }
+
+    public static void multiplicationTable() {
+
+        for (int i = 1; i <= 10; i++) {
+            for(int j = 1; j <= 10; j++) {
+                System.out.printf("%4d", i * j);
+            }
+            System.out.println();
+        }
+    }
+
 
 
     public static void main(String[] args) {
@@ -48,6 +71,8 @@ public class ArraysRevision {
         findMinVal(array);
         int[] avgArray =  {12, 45, 7, 3, 88, 56, 21};
         calcAverageFromArray(avgArray);
+        reverseArray(array);
+        multiplicationTable();
 
     }
 }

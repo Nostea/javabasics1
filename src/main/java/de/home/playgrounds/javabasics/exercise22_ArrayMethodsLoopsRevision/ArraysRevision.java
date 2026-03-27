@@ -1,5 +1,6 @@
 package de.home.playgrounds.javabasics.exercise22_ArrayMethodsLoopsRevision;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArraysRevision {
@@ -62,6 +63,55 @@ public class ArraysRevision {
         }
     }
 
+    public static void calcMostNumberOccurence(int[] numbersArray) {
+        // {3,7,3,1,3,9,3};
+        ArrayList<Integer> uniqueNumbers = new ArrayList<>();
+        ArrayList<Integer> occurencesArray = new ArrayList<>();
+
+        uniqueNumbers.add(numbersArray[0]);
+
+        for (int i = 1; i < numbersArray.length; i++) {
+            for (int j = i; j < numbersArray.length; j++) {
+                if(numbersArray[i] == numbersArray[j] && !uniqueNumbers.contains(numbersArray [i])) {
+                    uniqueNumbers.add(numbersArray[i]);
+                }
+            }
+        }
+        System.out.println(uniqueNumbers); // [3, 7, 1, 9]
+
+
+
+        for (int i = 0; i < uniqueNumbers.size(); i++) {
+            int counter = 0;
+            for (int j = i; j < numbersArray.length; j++) {
+                if(numbersArray[j] == uniqueNumbers.get(i)) {
+                    counter++;
+                }
+            }
+            occurencesArray.add(counter);
+        }
+
+        System.out.println(occurencesArray); // [4, 1, 1, 1]
+        int index = findLargestNumberInListIndex(occurencesArray);
+        System.out.println("Die Zahl " + uniqueNumbers.get(index) + " wiederholt sich am meisten: " + occurencesArray.get(index) + " mal");
+
+
+    }
+
+    public static int findLargestNumberInListIndex (ArrayList<Integer> occurencesArray) {
+        int maxIndexAt = 0;
+        for( int i = 0; i < occurencesArray.size() - 1; i++) {
+            if(occurencesArray.get(i) < occurencesArray.get(i + 1)) {
+                maxIndexAt = i + 1;
+            }
+            if(occurencesArray.get(i) > occurencesArray.get(i + 1)) {
+                maxIndexAt = i;
+            }
+        }
+        System.out.println(maxIndexAt);
+        return maxIndexAt;
+    }
+
 
 
     public static void main(String[] args) {
@@ -73,6 +123,7 @@ public class ArraysRevision {
         calcAverageFromArray(avgArray);
         reverseArray(array);
         multiplicationTable();
-
+        int[] numbersArray = {3,7,3,1,3,9,3};
+        calcMostNumberOccurence(numbersArray);
     }
 }

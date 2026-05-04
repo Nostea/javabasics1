@@ -1,0 +1,35 @@
+package de.home.playgrounds.javabasics.exercise25_inheritance;
+
+public abstract class Vehicle {
+    private String brand;
+    private int speed;
+
+    public Vehicle(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public int increaseSpeed(int kmh) {
+        return speed + kmh;
+    }
+
+    public void describeVehicle() {
+        System.out.println("Brand: " + brand + "   Speed: " + speed + " kmh/h");
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int newSpeed) {
+        this.speed = newSpeed;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+}
